@@ -7,14 +7,13 @@ body {
 .box {
     width: 200px;
     height: 200px;
-    border: lightblue 2px dotted;
+    border: lightblue dotted;
     
 }
 
 .box1 {
     background-color: aqua;
-    float: left;
-    font: black 10px solid;
+    float: left
 }
 
 .box2 {

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    anime({
+    //use anime.js to animate circles
+    let animateCircles = anime({
         targets: 'div',
         opacity: .5,
         translateX: '13.5rem',
@@ -7,25 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
         scale: [1, 3],
         rotate: '.25turn',
         delay: function(el, index) {
-          return index * 80;
+            return index * 500
         },
         direction: 'alternate',
         loop: true,
         duration: 3000
       });
 
-    anime({
+    let animateTitle = anime({
         targets: 'h1',
         translateY: '15rem',
         opacity: 50,
-        loop: false,
+        loop: 1,
     })
 
-    anime({
+    let transformBox = anime({
         targets: 'div',
-        borderRadius: '100',
-        strokeWidth: '25'
+        borderRadius: [ '0','100'],
     })
+
+
     let srcUrl;
     let preview = document.getElementById('audio_preview');
     fetch(`https://itunes.apple.com/lookup?id=834506800`)
@@ -37,8 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
     const lastBox = document.getElementsByClassName('box')[4];
-    
-   lastBox.addEventListener('click', (ev) => {
+    lastBox.addEventListener('click', (ev) => {
         preview.play()
     })
     
