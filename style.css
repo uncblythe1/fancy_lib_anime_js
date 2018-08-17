@@ -7,7 +7,8 @@ body {
 .box {
     width: 200px;
     height: 200px;
-    border: lightblue 1px dotted;
+    border: lightblue 2px dotted;
+    
 }
 
 .box1 {
@@ -38,6 +39,7 @@ body {
 
 .message {
     font-family: 'Montserrat Subrayada', sans-serif;
-    position: relative;
+    position: absolute;
+    z-index: 1;
 }
     

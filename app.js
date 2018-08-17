@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         targets: 'div',
         opacity: .5,
         translateX: '13.5rem',
-        // translateY: '10rem',
+        translateY: '15rem',
         scale: [1, 3],
         rotate: '.25turn',
         delay: function(el, index) {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         direction: 'alternate',
         loop: true,
-        duration: 5000
+        duration: 3000
       });
 
     anime({
@@ -21,19 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: false,
     })
 
-    let animateBorder = anime({
+    anime({
         targets: 'div',
-        borderRadius: '50%',
+        borderRadius: '100',
         strokeWidth: '25'
     })
+    let srcUrl;
+    let preview = document.getElementById('audio_preview');
+    fetch(`https://itunes.apple.com/lookup?id=834506800`)
+        .then(response => response.json())
+        .then( (data) => {
+                srcUrl = data.results[0].previewUrl;
+                preview.setAttribute(`src`, `${srcUrl}`)
+                
+        })
 
-
-   
+    const lastBox = document.getElementsByClassName('box')[4];
     
-
-
-
-
-
-
+   lastBox.addEventListener('click', (ev) => {
+        preview.play()
+    })
+    
+    
 })
